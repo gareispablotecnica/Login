@@ -15,7 +15,7 @@ const ConexionBD= new SQLite3.Database(DataBase_Ubicacion,(error)=>{
                 IDUsuario INTEGER PRIMARY KEY AUTOINCREMENT,
                 User TEXT NOT NULL,
                 Password TEXT NOT NULL,
-                Name TEXT NOT NULL,
+                Name TEXT NOT NULL
             )`,(error)=>{
                 if(error){
                     console.error('Error al Crear la Tabla Usuarios ⛔',error.message)
