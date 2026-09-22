@@ -2,6 +2,7 @@ const {ConexionBD}=require('../DataBase/db')
 
 const {EncriptarPassword}= require('../Utils/PasswordHash')
 
+// --> async debido a que bcrypt utiliza promesas para generar el hash de la contraseña
 const RegistrarUsuario=async(req,res)=>{
     const{User,Password,Name}=req.body;
     try{
@@ -26,6 +27,7 @@ const RegistrarUsuario=async(req,res)=>{
             // --> Consulta para registrar el usuario
             const Query2=`INSERT INTO Usuarios(User,Password,Name) VALUES(?,?,?)`
             
+            // --> Encriptar la contraseña antes de guardarla en la base de datos
             const hash= await EncriptarPassword(Password)
             
             ConexionBD.run(Query2,[User,hash,Name],(error)=>{
