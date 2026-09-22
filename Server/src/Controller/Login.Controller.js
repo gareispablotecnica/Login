@@ -1,6 +1,8 @@
 const {ConexionBD}=require('../DataBase/db')
 
-const RegistrarUsuario=(req,res)=>{
+const {EncriptarPassword}= require('../Utils/PasswordHash')
+
+const RegistrarUsuario=async(req,res)=>{
     const{User,Password,Name}=req.body;
     try{
         // --> ! Validar que los campos no estén vacíos
@@ -10,7 +12,7 @@ const RegistrarUsuario=(req,res)=>{
         }
         // --> Consulta para verificar si el usuario ya está registrado
         const Buscar=`SELECT * FROM Usuarios WHERE User=?`
-        ConexionBD.get(Buscar,[User],(error,Perfil)=>{
+        ConexionBD.get(Buscar,[User],async(error,Perfil)=>{
             // --> Validar si hubo un error en la consulta
             if(error){
                 console.error('Usuario ya registrado ',error)
@@ -23,7 +25,10 @@ const RegistrarUsuario=(req,res)=>{
             }
             // --> Consulta para registrar el usuario
             const Query2=`INSERT INTO Usuarios(User,Password,Name) VALUES(?,?,?)`
-            ConexionBD.run(Query2,[User,Password,Name],(error)=>{
+            
+            const hash= await EncriptarPassword(Password)
+            
+            ConexionBD.run(Query2,[User,hash,Name],(error)=>{
                 // --> Validar si hubo un error al registrar el usuario
                 if(error){
                     console.error('Error al registrar el usuario',error)
