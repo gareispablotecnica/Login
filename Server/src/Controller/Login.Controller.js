@@ -1,6 +1,8 @@
 const {ConexionBD}=require('../DataBase/db')
 
-const {EncriptarPassword}= require('../Utils/PasswordHash')
+const path=require('path')
+
+const {EncriptarPassword,CompararPassword}= require('../Utils/PasswordHash')
 
 // --> async debido a que bcrypt utiliza promesas para generar el hash de la contraseña
 const RegistrarUsuario=async(req,res)=>{
@@ -47,4 +49,43 @@ const RegistrarUsuario=async(req,res)=>{
     }
 }
 
-module.exports={RegistrarUsuario}
+
+const IniciarSesion=async(req,res)=>{
+    const {User,Password}=req.body
+    console.log(User)
+    try{
+        if(!User || !Password){
+            console.error('Error: Debe Completar los Campos para continuar')
+
+            return res.status(404).json({error:'Debe Completar los Datos para continuar'})
+        }
+        const consulta=`SELECT * FROM Usuarios WHERE User=?`
+        ConexionBD.get(consulta,[User],async(error,Perfil)=>{
+            if(error){
+                console.error('Error al Intentar encontrar el Usuario')
+
+                return res.status(404).json({error:'Error al Intentar encontrar el Usuario'})
+            }
+            if(!Perfil){
+                console.error('Usuario no registrado')
+                return res.status(401).json({Mensaje:'El Usuario no Registrado'})
+            }
+            const ValidarPassword = await CompararPassword(Password,Perfil.Password)
+            
+            if(!ValidarPassword){
+                console.error('Error en la Contraseña ', error.message)
+                return res.status(401).json({error: 'Error en el Ingreso de la Contraseña'})
+            }
+            return res.status(200).sendFile(path.join(__dirname,'../status/status200-.png'))
+            // return res.status(200).json({Mensaje: 'Bienvenide Lxrd: ',User})
+
+        })
+    }
+    catch(error){
+        console.error('Error de Server')
+        return res.status(500).json({error:'Error con el Servidor'})
+    }
+
+}
+
+module.exports={RegistrarUsuario,IniciarSesion}
