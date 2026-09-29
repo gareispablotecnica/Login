@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" role="img" aria-label="Emblema yin yang con un michi feliz">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%" stop-color="#fff7ed" />
+      <stop offset="32%" stop-color="#ede9fe" />
+      <stop offset="48%" stop-color="#a5b4fc" />
+      <stop offset="64%" stop-color="#4c1d95" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <radialGradient id="brillo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+
+    <g id="pata">
+      <ellipse cx="0" cy="7" rx="12" ry="9" />
+      <circle cx="-12" cy="-4" r="5" />
+      <circle cx="-4" cy="-10" r="5" />
+      <circle cx="5" cy="-10" r="5" />
+      <circle cx="13" cy="-4" r="5" />
+    </g>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#fondo)" />
+  <circle cx="300" cy="235" r="300" fill="url(#brillo)" opacity="0.5" />
+
+  <circle cx="300" cy="235" r="226" fill="none" stroke="#a5b4fc" stroke-width="1.5" opacity="0.55" />
+
+  <g transform="translate(300 235)">
+    <path d="M 0,-212 A 212,212 0 0 0 0,212 A 106,106 0 0 0 0,0 A 106,106 0 0 1 0,-212 Z" fill="#1e1b4b" />
+    <path d="M 0,-212 A 212,212 0 0 1 0,212 A 106,106 0 0 1 0,0 A 106,106 0 0 0 0,-212 Z" fill="#fdf6ec" />
+  </g>
+
+  <circle cx="300" cy="235" r="212" fill="none" stroke="#312e81" stroke-width="1.5" opacity="0.18" />
+
+  <use href="#pata" transform="translate(300 341)" fill="#fdf6ec" opacity="0.92" />
+  <use href="#pata" transform="translate(300 129)" fill="#312e81" opacity="0.55" />
+
+  <g>
+    <circle cx="365" cy="120" r="36" fill="#4f46e5" />
+    <g fill="none" stroke="#a5b4fc" stroke-width="3.4" stroke-linecap="round" opacity="0.85">
+      <path d="M 334,108 Q 365,120 396,108" />
+      <path d="M 331,128 Q 365,140 399,128" />
+      <path d="M 356,86 Q 367,120 356,154" />
+      <path d="M 376,86 Q 387,120 376,154" />
+    </g>
+    <circle cx="352" cy="107" r="7" fill="#c7d2fe" opacity="0.5" />
+    <path d="M 397,138 C 420,152 430,168 424,186 C 419,200 404,204 396,196"
+          fill="none" stroke="#4f46e5" stroke-width="3.4" stroke-linecap="round" />
+  </g>
+
+  <g>
+    <path d="M 266,398 C 284,394 288,372 276,356" fill="none" stroke="#f7a14b" stroke-width="11" stroke-linecap="round" />
+    <g fill="none" stroke="#d97b2a" stroke-width="3.4" stroke-linecap="round">
+      <path d="M 282,388 L 289,384" />
+      <path d="M 285,372 L 292,368" />
+    </g>
+
+    <path d="M 235,352 C 213,352 199,377 198,399 C 197,407 205,411 235,411 C 265,411 273,407 272,399 C 271,377 257,352 235,352 Z" fill="#f7a14b" />
+    <path d="M 235,360 C 224,360 218,384 218,398 C 218,405 224,408 235,408 C 246,408 252,405 252,398 C 252,384 246,360 235,360 Z" fill="#ffd6a5" />
+    <ellipse cx="216" cy="404" rx="13" ry="7.5" fill="#ffd6a5" />
+    <ellipse cx="254" cy="404" rx="13" ry="7.5" fill="#ffd6a5" />
+
+    <path d="M 207,326 L 199,297 L 230,314 Z" fill="#f7a14b" />
+    <path d="M 263,326 L 271,297 L 240,314 Z" fill="#f7a14b" />
+    <path d="M 212,323 L 207,305 L 226,315 Z" fill="#ff9db0" />
+    <path d="M 258,323 L 263,305 L 244,315 Z" fill="#ff9db0" />
+
+    <circle cx="235" cy="340" r="32" fill="#f7a14b" />
+
+    <g fill="none" stroke="#d97b2a" stroke-width="4" stroke-linecap="round">
+      <path d="M 226,318 L 224,328" />
+      <path d="M 235,314 L 235,326" />
+      <path d="M 244,318 L 246,328" />
+    </g>
+
+    <circle cx="216" cy="347" r="5.5" fill="#ff9db0" opacity="0.55" />
+    <circle cx="254" cy="347" r="5.5" fill="#ff9db0" opacity="0.55" />
+
+    <g fill="none" stroke="#3f2413" stroke-width="4.4" stroke-linecap="round">
+      <path d="M 214,336 Q 222,327 230,336" />
+      <path d="M 240,336 Q 248,327 256,336" />
+      <path d="M 226,352 Q 235,361 244,352" />
+    </g>
+
+    <path d="M 230,343 L 240,343 L 235,350 Z" fill="#ff8fa0" />
+
+    <g fill="#3f2413" opacity="0.55">
+      <circle cx="209" cy="343" r="1.7" />
+      <circle cx="207" cy="350" r="1.7" />
+      <circle cx="209" cy="357" r="1.7" />
+      <circle cx="261" cy="343" r="1.7" />
+      <circle cx="263" cy="350" r="1.7" />
+      <circle cx="261" cy="357" r="1.7" />
+    </g>
+  </g>
+
+  <g fill="#fb7185" opacity="0.9" transform="translate(160 300) scale(0.72)">
+    <path d="M 0,4 C -6,-2 -10,2 -10,6 C -10,11 -4,15 0,18 C 4,15 10,11 10,6 C 10,2 6,-2 0,4 Z" />
+  </g>
+
+  <path d="M 148,364 L 151,373 L 160,376 L 151,379 L 148,388 L 145,379 L 136,376 L 145,373 Z" fill="#fde68a" opacity="0.9" />
+
+  <g fill="#ffffff" opacity="0.7">
+    <circle cx="86" cy="130" r="4" />
+    <circle cx="516" cy="318" r="5" />
+    <circle cx="452" cy="86" r="3.5" />
+  </g>
+</svg>

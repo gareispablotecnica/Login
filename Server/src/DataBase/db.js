@@ -13,7 +13,7 @@ const ConexionBD= new SQLite3.Database(DataBase_Ubicacion,(error)=>{
         ConexionBD.exec(
             `CREATE TABLE IF NOT EXISTS Usuarios(
                 IDUsuario INTEGER PRIMARY KEY AUTOINCREMENT,
-                User TEXT NOT NULL,
+                User TEXT NOT NULL UNIQUE,
                 Password TEXT NOT NULL,
                 Name TEXT NOT NULL
             )`,(error)=>{
