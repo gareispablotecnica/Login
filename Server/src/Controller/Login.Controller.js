@@ -76,8 +76,8 @@ const IniciarSesion=async(req,res)=>{
                 console.error('Error en la Contraseña ', error.message)
                 return res.status(401).json({error: 'Error en el Ingreso de la Contraseña'})
             }
-            return res.status(200).sendFile(path.join(__dirname,'../status/status200-.png'))
-            // return res.status(200).json({Mensaje: 'Bienvenide Lxrd: ',User})
+            // return res.status(200).sendFile(path.join(__dirname,'../status/status200-.png'))
+            return res.status(200).json({Mensaje: 'Bienvenide Lxrd: ',User})
 
         })
     }

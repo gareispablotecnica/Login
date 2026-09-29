@@ -666,3 +666,14 @@ body {
   margin-left: 60px;
   box-shadow: 3px 5px 3px #94a3b8;
 }
+
+.Mensajes{
+  color:whitesmoke;
+  font-size: 20px;
+  text-align: center;
+  background: #508040;
+  width: 250px;
+  padding: 10px;
+  margin-left: 45%;
+  box-shadow: 3px 5px 3px #94a3b8;
+}
