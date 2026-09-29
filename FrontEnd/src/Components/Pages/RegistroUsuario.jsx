@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import Gatito from '../../assets/img/Form/michi-feliz.svg'
 
+import { servidor } from '../../Services/api.js'
+
 const IconoUsuario = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -56,8 +58,23 @@ function RegistroUsuario() {
   const [verPassword1, setVerPassword1] = useState(false)
   const [verPassword, setVerPassword] = useState(false)
 
+  const [Mensajes, setMensajes] =useState ('')
+
   const fuerza = fuerzaPassword(Password1)
   const coincide = Password1.length > 0 && Password1 === Password
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setMensajes('')
+    try {
+      const URL = servidor.post('/Registrar', { User, Password, Name })
+      setMensajes('Registrado Correctamente')
+    }
+    catch (error) {
+      setMensajes('Error al iniciar sesión')
+    }
+  }
+
 
   return (
     <main className="contenido">
@@ -80,7 +97,7 @@ function RegistroUsuario() {
           </figcaption>
         </figure>
 
-        <form action="" method="post" className="formRegistro" noValidate>
+        <form action="" method="post" className="formRegistro" noValidate onSubmit={handleSubmit}>
 
           <header className="formRegistro-cabecera">
             <p className="formRegistro-kicker">Cuenta nueva</p>
@@ -196,6 +213,8 @@ function RegistroUsuario() {
           </p>
 
         </form>
+
+        {Mensajes && <p className='Mensajes'>{Mensajes}</p>}
 
       </section>
     </main>

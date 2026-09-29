@@ -25,6 +25,23 @@ const ConexionBD= new SQLite3.Database(DataBase_Ubicacion,(error)=>{
                 }
             }
         )
+        ConexionBD.exec(
+            `CREATE TABLE IF NOT EXISTS Productos(
+                IDProducto INTEGER PRIMARY KEY AUTOINCREMENT,
+                Nombre TEXT NOT NULL,
+                Precio FLOAT NOT NULL,
+                Stock INTEGER NOT NULL,
+                Descripcion TEXT NOT NULL,
+                Imagen TEXT
+            )`,(error)=>{
+                if(error){
+                    console.error('Error al Crear la Tabla Productos ⛔',error.message)
+                }
+                else{
+                    console.log('Tabla Productos creada Correctamente ✅')
+                }
+            }
+        )
     }
 })
 
