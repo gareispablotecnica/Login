@@ -61,7 +61,8 @@ function RegistroUsuario() {
 
   return (
     <main className="contenido">
-     –
+      <section className="registro">
+
         <figure className="registro-arte">
           <img src={Gatito} alt="Michi feliz yin yang" />
           <span className="registro-arte-velo" aria-hidden="true" />
