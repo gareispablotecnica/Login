@@ -17,11 +17,17 @@ function Main() {
         setMensajes('')
         try {
             const Resultado = servidor.post('/Login', { User, Password })
-            console.log(Resultado)
-            setMensajes('Inicio de sesión exitoso')
+
+            setMensajes(Resultado.data.Mensajes ||
+            Resultado.data.error ||
+            'Inicio de Sesión Exitoso')
+
+            // console.log(Resultado)
+            // setMensajes('Inicio de sesión exitoso')
         }
         catch (error) {
             setMensajes('Error al iniciar sesión')
+            //  ? (si)   :(no)
         }
     }
     return (
