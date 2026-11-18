@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// En local usa el backend en localhost; en Vercel define VITE_API_URL
-// (ej: https://tu-backend.onrender.com/api) en Settings > Environment Variables.
+// En producción (Vercel) el frontend y el servidor comparten dominio: /api va al servicio "server".
+// En local, vite.config.js redirige /api a http://localhost:3000.
 export const servidor = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
+    baseURL: import.meta.env.VITE_API_URL || '/api'
 })

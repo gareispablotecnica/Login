@@ -1,8 +1,18 @@
 const Ubicacion= require('path')
+const fs=require('fs')
 const SQLite3=require('sqlite3')
 
 // --> resolve: se encarga de unir rutas de archivos y carpetas
-const DataBase_Ubicacion= Ubicacion.resolve(__dirname,'./Urban.db')
+let DataBase_Ubicacion= Ubicacion.resolve(__dirname,'./Urban.db')
+
+// --> En Vercel el disco del proyecto es de solo lectura: se copia la BD a /tmp (temporal, NO persistente)
+if(process.env.VERCEL){
+    const Temporal='/tmp/Urban.db'
+    if(!fs.existsSync(Temporal) && fs.existsSync(DataBase_Ubicacion)){
+        fs.copyFileSync(DataBase_Ubicacion,Temporal)
+    }
+    DataBase_Ubicacion=Temporal
+}
 
 const ConexionBD= new SQLite3.Database(DataBase_Ubicacion,(error)=>{
     if(error){

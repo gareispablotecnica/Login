@@ -73,7 +73,7 @@ const IniciarSesion=async(req,res)=>{
             const ValidarPassword = await CompararPassword(Password,Perfil.Password)
             
             if(!ValidarPassword){
-                console.error('Error en la Contraseña ', error.message)
+                console.error('Error en la Contraseña')
                 return res.status(401).json({error: 'Error en el Ingreso de la Contraseña'})
             }
             // return res.status(200).sendFile(path.join(__dirname,'../status/status200-.png'))

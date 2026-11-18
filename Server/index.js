@@ -16,6 +16,11 @@ App.use(Express.json())
 // --> Rutas de login
 App.use('/api',RutasLogin)
 
-App.listen(PORT,()=>{
-    console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`)
-})
+// --> En Vercel la app se exporta (no se escucha un puerto); en local se levanta con node/nodemon
+if(require.main===module){
+    App.listen(PORT,()=>{
+        console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`)
+    })
+}
+
+module.exports=App
